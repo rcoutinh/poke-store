@@ -1,0 +1,153 @@
+/* * {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+} */
+/* 
+body {
+  margin: 0;
+  background-color: white;
+} */
+
+main {
+  display: grid;
+  grid-template-columns: 1fr repeat(12, minmax(auto, 60px)) 1fr;
+  grid-gap: 20px;
+  padding: 40px 0;
+}
+
+.text-thick {
+  font-weight: bold;
+}
+
+.text--medium {
+  font-family: sans-serif;
+  font-size: 20px;
+  line-height: 20px;
+  text-align: center;
+}
+
+.cards {
+  grid-column: 2 / span 12;
+  display: grid;
+  grid-template-columns: repeat(12, minmax(auto, 60px));
+  grid-gap: 20px;
+}
+
+.card {
+  grid-column-end: span 3;
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  cursor: pointer;
+  transition: all 0.3s ease 0s;
+
+  border: gray 1px solid;
+  margin-left: 10px;
+  margin-right: 10px;
+  box-shadow: gray 2px 2px 3px;
+}
+
+.card:hover {
+  transform: translateY(-7px);
+}
+
+.card__price_layout {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card__image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card__image-container img {
+  width: 250px;
+}
+
+.card__content {
+  padding: 20px;
+}
+
+.card__title {
+  margin-bottom: 10px;
+}
+
+.card__info {
+  margin-bottom: 10px;
+}
+
+.card__price_layout {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card__price {
+  margin-bottom: 10px;
+  padding: 5px 5px;
+  border-radius: 8px;
+  text-align: center;
+  cursor: pointer;
+}
+
+@media only screen and (max-width: 1000px) {
+  .card {
+    grid-column-end: span 6;
+  }
+}
+
+@media only screen and (max-width: 700px) {
+  main {
+    grid-gap: 20px;
+  }
+  .card {
+    grid-column-end: span 12;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  main {
+    grid-template-columns: 10px repeat(6, 1fr) 10px;
+    grid-gap: 10px;
+  }
+  .cards {
+    grid-column: 2 / span 6;
+    grid-template-columns: repeat(6, 1fr);
+    grid-gap: 20px;
+  }
+  .card {
+    grid-column-end: span 6;
+  }
+}
+
+
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400italic,400,300,600,800);
+
+.boxbox {
+  height:60px;
+  border-style:solid; 
+  border-width:6px;
+  border-color:#39393b;
+}
+
+textarea, input {
+   font-family: sans-serif;  
+}
+
+textarea:focus, input:focus {
+   color:#39393b;
+   outline:none;  
+}
+
+.submit:hover {
+  background: #303032;
+}
+
+
+
+
+
