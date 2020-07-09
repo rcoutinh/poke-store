@@ -2,46 +2,25 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import  './index.css';
 
-import Products from '../../components/Products'
-import Pagination from '../../components/Pagination'
+// import Products from '../../components/Products'
+// import Pagination from '../../components/Pagination'
 import Logo from './logo.png'
 
 import Navbar from 'react-bootstrap/Navbar';
-import Nav from 'react-bootstrap/Nav';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import FormControl from 'react-bootstrap/FormControl';
-import InputGroup from 'react-bootstrap/InputGroup';
 
 import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
 
 function App(props) {
     const [pokeList, setPokeList] = useState([]);
     const [loading, setLoading] = useState(false);
-    const [currentPage, setCurrentPage] = useState(1);
+    // const [currentPage, setCurrentPage] = useState(1);
     const [itemPerPage] = useState(10);
-
-    const [ usuario, setUsuario] = useState("");
-    const [ error, setError ] = useState(false);
-    const [pokemon, setPokemon] = useState([])
+    const [error, setError] = useState(false);
 
     const URL = `https://pokeapi.co/api/v2/pokemon?limit={itemPerPage}`;
-
-    // useEffect(() => {
-    //     const fetchPokeList = async() => {
-    //         setLoading(true)
-    //         const result = await axios.get(URL)
-    //         setPokeList(result.data)
-    //         setLoading(false)
-    //     }
-
-    //     console.log(loading)
-    //     fetchPokeList()
-    // }, [])
-    // console.log(pokeList)
-
 
     useEffect(() => {
         const fetchPokeList = async () => {
@@ -63,10 +42,10 @@ function App(props) {
         fetchPokeList()
     }, [])
 
-    const indexOfLastItem = currentPage * itemPerPage
-    const indexOfFirstItem = indexOfLastItem - itemPerPage
-    const currentItems = pokeList.slice(indexOfFirstItem, indexOfLastItem)
-    const paginate = (pageNumber) => setCurrentPage(pageNumber)
+    // const indexOfLastItem = currentPage * itemPerPage
+    // const indexOfFirstItem = indexOfLastItem - itemPerPage
+    // const currentItems = pokeList.slice(indexOfFirstItem, indexOfLastItem)
+    // const paginate = (pageNumber) => setCurrentPage(pageNumber)
 
     function handlePesquisa() {
         // console.log(pokemon);
@@ -77,10 +56,6 @@ function App(props) {
         .then(response => response.data.results.map (item => {
                 axios.get(item.url)
                 .then(proditem => {
-                    const pokePrice = {
-                        "price" : Math.floor(Math.random() * 10) + 1
-                    }
-
                     pokeList.push(proditem.data)
                     setPokeList([...pokeList])
                 })
